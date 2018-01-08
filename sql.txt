@@ -1,0 +1,23 @@
+
+CREATE TABLE company(
+  id int NOT NULL, 
+  name varchar(255) NOT NULL,
+  url varchar(512) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=INNODB;
+
+CREATE TABLE cap(
+  id MEDIUMINT NOT NULL,
+  company_id int NOT NULL,
+  name varchar(255) NOT NULL,
+  img_url varchar(255) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (company_id) REFERENCES company(id) ON DELETE CASCADE
+) ENGINE=INNODB;
+
+INSERT INTO company (id, name, url) values (1, "日清", "https://www.nissin.com/jp/")
+INSERT INTO company (id, name, url) values (2, "東洋水産", "http://www.maruchan.co.jp/index.html")
+INSERT INTO company (id, name, url) values (3, "サンヨー食品株式会社", "http://www.sanyofoods.co.jp")
+INSERT INTO company (id, name, url) values (4, "明星食品", "https://www.myojofoods.co.jp/")
+INSERT INTO company (id, name, url) values (5, "ACECOOK", "http://www.acecook.co.jp/company/index.html")
+
